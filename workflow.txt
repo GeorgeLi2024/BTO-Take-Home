@@ -1,0 +1,11 @@
+0. Understand the problem; ask questions to ChatGPT; read documentation; do additional research and verification as needed
+1. Use ChatGPT to generate design and test documentation
+2. Work with ChatGPT to iteratively improve the design documentation
+3. Use Cursor to design and verify a set of simple unit tests for the design
+4. Use Cursor to implement the design
+5. Manually verify the implementation
+
+-Move from Cursor to the documentation to iteratively improve the design
+-All coding/design had AI support in some form
+-Very important to understand what is going on but it is more effective in practice to jump to the solution and work backwards
+-In doing so you also understand how to move forwards

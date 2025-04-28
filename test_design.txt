@@ -1,0 +1,19 @@
+## Unit Tests
+- `test_extract_genes`: Tests gene extraction with different cases:
+  - Single gene
+  - Duplicate genes
+  - Multiple genes
+  - No genes
+
+## Integration Test
+- `test_full_process`: Tests the complete workflow
+  - Uses temporary files for input/output
+  - Mocks the Ensembl API
+  - Verifies correct TSV output format
+
+## Test Implementation
+- Unit tests use simple mock annotations
+- Integration test uses mock API responses
+- Input: Simple RSID list
+- Output: TSV with required fields
+- All tests are self-contained with no external dependencies 

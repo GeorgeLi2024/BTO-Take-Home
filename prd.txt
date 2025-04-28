@@ -1,0 +1,69 @@
+Python CLI for Simple Variant Annotation
+
+General Coding Guidelines
+-------------------------
+Use extremely simple beginner-friendly code that prioritizes readability, 
+is easy to understand, and avoids complex logic. Add clear, concise 
+1-line comments where relevant that are neither too simplistic nor 
+overly technical.
+
+Overview
+--------
+We will build a Python CLI tool that:
+- Reads a list of RSIDs from a text file
+- Sends a single batch API request to Ensembl for efficiency
+- Outputs "n/a" in all fields for RSIDs that fail or are invalid
+- Writes the results into a TSV output file
+
+General Instructions
+--------------------
+The command line interface should:
+
+- Accept a file with a list of dbSNP RSIDs and output a TSV file with annotations
+- Query the Ensembl API using this endpoint https://rest.ensembl.org/documentation/info/vep_id_get
+- Return the following fields: `start`, `end`, `most_severe_consequence` and a unique list of genes (pull from the `gene_symbol` value in the list of `transcript_consequences`)
+    - To keep it simple, if multiple variants are returned just use the first one.
+
+Implementation
+-------------
+1. Single File Structure
+variant_annotator.py will contain:
+- Function to read RSIDs from file
+- Function to fetch annotations via batch API request
+- Function to extract genes from annotations
+- Function to process variants and write TSV output
+- Simple CLI interface using sys.argv
+
+2. Core Functions
+- read_variants(file_path): Read RSIDs from file
+- get_variant_annotations(rsids): Single batch API request
+- extract_genes(annotation): Get unique gene symbols
+- process_variants(input_file, output_file): Main processing flow
+
+3. Error Handling
+- Simple error handling: return N/A for any failures
+- No retries or complex error recovery
+- Basic file existence check
+
+4. Dependencies
+- requests: For API calls
+- csv: For TSV output
+
+Key Design Decisions
+-------------------
+- Single file for simplicity and maintainability
+- Batch processing for efficiency
+- Simple error handling (N/A for failures)
+- No unnecessary features or complexity
+
+Context
+-------
+- Ensembl API: https://rest.ensembl.org/documentation/info/variation_lookup
+- Batch API: https://rest.ensembl.org/documentation/info/variation_lookup_batch
+
+Example Variant RSIDs
+-----------------------
+rs1553770434
+rs56116432
+rs1
+rs121912854
